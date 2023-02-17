@@ -1,0 +1,54 @@
+{
+    "name": "TargetPositionInput",
+    "maps": [
+        {
+            "name": "InputWorldPosition",
+            "id": "b61a2f27-8ba3-4c7d-84f2-e88382e4a801",
+            "actions": [
+                {
+                    "name": "Position",
+                    "type": "Value",
+                    "id": "0cc44672-9eda-492c-8621-dfd767933506",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "InputCli",
+                    "type": "Button",
+                    "id": "d62407b5-c5b1-424c-97f3-25a2ad6005e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "857b147c-d6d9-4e5e-ba45-2660ed7ceeee",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a04fcd6d-f25b-4733-8cf2-3a9ae3c48de7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InputCli",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
