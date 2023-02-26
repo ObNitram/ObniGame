@@ -1,5 +1,6 @@
 using Main.Character.Module;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Main.Character
 {

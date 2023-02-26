@@ -1,7 +1,6 @@
-using Main.Character.Module.LookModule;
 using UnityEngine;
 
-namespace Main.Character.LookModule
+namespace Main.Character.Module.LookModule
 {
     public class GivePositionFromTransform : MonoBehaviour
     {

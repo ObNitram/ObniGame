@@ -1,10 +1,8 @@
 using System.Collections;
 using Main.Character.Module;
-using Main.Character.MoveModule.DirectionMove;
 using Main.Weapon.Aiming;
 using Main.Weapon.SO_Weapon;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Main.Weapon
@@ -12,13 +10,14 @@ namespace Main.Weapon
     public class RangeWeapon : MonoBehaviour
     {
         [SerializeField] private Transform _firePoint;
-        [SerializeField] private Bullet _bulletPrefab;
-        [FormerlySerializedAs("_directMove2D")] [SerializeField] private AVector2 vector2;
+        [SerializeField] private Bullet.Bullet _bulletPrefab;
+        [SerializeField] private AVector2 vector2;
+        [SerializeField] private Rigidbody2D _rigidbody2D;
 
         [SerializeField] private AimingUI _aimingUI;
         //[SerializeField] private AudioSource _audioSource;
-        
-        
+
+
         private WeaponSO _weaponSO;
 
         public WeaponSO WeaponSO
@@ -27,18 +26,18 @@ namespace Main.Weapon
             set
             {
                 _fireRateWait = new WaitForSeconds(value.fireRate);
-                
+
                 _canShoot = false;
                 Invoke(nameof(ResetCanShoot), value.fireRate);
-                
+
                 currentMagazine = value.maxMagazine;
-                
+
                 _weaponSO = value;
             }
         }
 
         public int currentMagazine;
-        
+
         [SerializeField] private bool _isAutoFire;
 
         private float _currentAimingAngle;
@@ -68,7 +67,7 @@ namespace Main.Weapon
         {
             _canShoot = true;
         }
-        
+
         public void Reload()
         {
             currentMagazine = _weaponSO.maxMagazine;
@@ -121,7 +120,7 @@ namespace Main.Weapon
         private void Shoot()
         {
             //_audioSource.Play();
-            
+
             for (int i = 0; i < _weaponSO.numberOfBulletsByShot; i++)
             {
                 Quaternion rotation =
@@ -130,8 +129,8 @@ namespace Main.Weapon
                         90f);
                 rotation *= _firePoint.rotation;
 
-                Bullet bullet = Instantiate(_bulletPrefab, _firePoint.position, rotation);
-                bullet.Init(_weaponSO, vector2.GetVector2());
+                Bullet.Bullet bullet = Instantiate(_bulletPrefab, _firePoint.position, rotation);
+                bullet.Init(_weaponSO, _rigidbody2D.velocity);
             }
 
             _currentAimingAngle *= _weaponSO.aimingMultiplierOnShoot;

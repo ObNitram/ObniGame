@@ -2,10 +2,7 @@ using Main.Weapon.SO_Weapon;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-// lichess.org
-
-
-namespace Main.Weapon
+namespace Main.Weapon.Bullet
 {
     public class Bullet : MonoBehaviour
     {
@@ -20,12 +17,12 @@ namespace Main.Weapon
         public void Init(WeaponSO weaponSO, Vector2 initialSpeed)
         {
             _weaponSo = weaponSO;
-            
-            _rigidbody2D.AddForce(transform.right * weaponSO.speed, ForceMode2D.Impulse);
+            UnityEngine.Debug.Log(initialSpeed);
             _rigidbody2D.AddForce(initialSpeed, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(transform.right.normalized * weaponSO.speed, ForceMode2D.Impulse);
             _spriteRenderer.sprite = weaponSO.sprite;
             _light2D.lightCookieSprite = weaponSO.sprite;
-            
+
             Destroy(gameObject, weaponSO.range);
         }
 

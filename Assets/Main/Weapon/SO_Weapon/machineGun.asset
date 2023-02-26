@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09b8ce2c35835529104485d6d962be, type: 3}
   m_Name: machineGun
   m_EditorClassIdentifier: 
-  speed: 50.1
+  speed: 32
   damage: 10
   fireRate: 0.1
   range: 2.45

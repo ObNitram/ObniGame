@@ -4,13 +4,9 @@ namespace Main.Character.Module.MoveModule.MoveByTargetPosition
 {
     public class MoveToPositionLazy : AVector2
     {
-        private AVector2 directMove;
+        [SerializeField] private AVector2 directMove;
         private Vector2 _targetPosition;
 
-        private void Awake()
-        {
-            directMove = GetComponent<AVector2>();   
-        }
 
 
         public override void SetVector2(Vector2 targetPosition)

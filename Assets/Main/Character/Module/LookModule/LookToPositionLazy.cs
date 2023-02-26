@@ -4,7 +4,7 @@ namespace Main.Character.Module.LookModule
 {
     public class LookToPositionLazy : MonoBehaviour
     {
-        [SerializeField] private AVector2 directMove;
+        [SerializeField] private AVector2 _output;
         private Vector2 _targetPosition;
 
      
@@ -17,7 +17,7 @@ namespace Main.Character.Module.LookModule
 
         private void Update()
         {
-            directMove.SetVector2((_targetPosition - (Vector2)transform.position));
+            _output.SetVector2((_targetPosition - (Vector2)transform.position));
         }
     }
 }
